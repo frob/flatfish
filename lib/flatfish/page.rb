@@ -75,7 +75,7 @@ module Flatfish
             field = ''
           else
             # sub tokens and gnarly MS Quotes
-            field = @doc.css(selector).to_s.gsub("%5BFLATFISH", '[').gsub("FLATFISH%5D", ']').gsub(/[”“]/, '"').gsub(/[‘’]/, "'")
+            field = @doc.css(selector).to_s.gsub("%5BFLATFISH", '[').gsub("FLATFISH%5D", ']')
           end
           html[@schema[i]] +=  field
         end
@@ -95,7 +95,7 @@ module Flatfish
 
         #TODO finalize list of supported file types 
         href = Flatfish::Url.absolutify(a['href'], @cd)
-        valid_exts = ['.doc', '.docx', '.pdf', '.pptx', '.ppt', '.xls', '.xlsx']
+        valid_exts = ['.doc', '.docx', '.pdf', '.ppt', '.xls', '.xlsx']
         if href =~ /#{@host}/  && valid_exts.include?(File.extname(href))
           media = get_media(href)
           href = "[FLATFISHmedia:#{media.id}FLATFISH]"
