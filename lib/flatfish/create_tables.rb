@@ -1,11 +1,11 @@
-module Flatfish 
+module Flatfish
 
   class CreateKlass < ActiveRecord::Migration
     # assume every klass has a URL, Path, Title
     # pass in additional columns from CSV
     def self.setup(schema, klass)
       k = klass.tableize.to_sym
-      create_table(k) do |t|
+      create_table(k, :options => 'DEFAULT CHARSET=utf8') do |t|
         t.string :url
         t.string :path
         t.string :title

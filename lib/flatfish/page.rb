@@ -55,7 +55,7 @@ module Flatfish
         f.close
       else
         html = Flatfish::Url.open_url(@url)
-        @doc = Nokogiri::HTML(html)
+        @doc = Nokogiri::HTML(html, 'UTF-8')
       end
     end
 
@@ -75,7 +75,7 @@ module Flatfish
             field = ''
           else
             # sub tokens and gnarly MS Quotes
-            field = @doc.css(selector).to_s.gsub("%5BFLATFISH", '[').gsub("FLATFISH%5D", ']')
+            field = @doc.css(selector).to_s.gsub("%5BFLATFISH", '[').gsub("FLATFISH%5D", ']').encode("UTF-8")
           end
           html[@schema[i]] +=  field
         end
