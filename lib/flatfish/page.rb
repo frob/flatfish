@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- #specify UTF-8 (unicode) characters
 require_relative 'url'
 
-module Flatfish 
+module Flatfish
 
   class Page < ActiveRecord::Base
     self.abstract_class = true
@@ -93,9 +93,9 @@ module Flatfish
     def update_hrefs(css_selector)
       @doc.css(css_selector + ' a').each do |a|
 
-        #TODO finalize list of supported file types 
+        #TODO finalize list of supported file types
         href = Flatfish::Url.absolutify(a['href'], @cd)
-        valid_exts = ['.doc', '.docx', '.pdf', '.ppt', '.xls', '.xlsx']
+        valid_exts = ['.doc', '.docx', '.ppt', '.xls', '.xlsx']
         if href =~ /#{@host}/  && valid_exts.include?(File.extname(href))
           media = get_media(href)
           href = "[FLATFISHmedia:#{media.id}FLATFISH]"
@@ -129,7 +129,7 @@ module Flatfish
         end
       end
       media
-    end 
+    end
 
     # read in blob
     def read_in_blob(url)
