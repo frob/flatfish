@@ -59,7 +59,7 @@ module Flatfish
       @cnt = 0
       csv.each do |row|
         begin
-          break if @cnt == @config['max_rows']
+          break if @cnt == @config['development']['max_rows']
           @cnt += 1
           page = @klass.find_or_create_by_url(row[0]) or break;
           puts "Processing #{k}.#{page.id} with URL #{row[0]}"
