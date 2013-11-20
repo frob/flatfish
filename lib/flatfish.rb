@@ -16,7 +16,7 @@ require 'flatfish/create_tables'
 require 'flatfish/url'
 
 #API
-module Flatfish 
+module Flatfish
   class << self
     #allow alias Flatfish.new etc
     def new(yml = nil)
@@ -33,5 +33,5 @@ module Flatfish
     end
   end
 
-  VERSION = "0.3.4"
+  VERSION = "0.3.5"
 end

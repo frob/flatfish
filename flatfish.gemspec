@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.date        = '2012-10-17'
   s.summary     = "Scrape web pages!"
   s.description = "flatfish accepts a CSV of URLS with CSS selectors prepping them for insert into drupal"
-  s.authors     = ["Tim Loudon", "Mike Crittenden"]
-  s.email       = 'timl@drupalconnect.com'
+  s.authors     = ["Tim Loudon", "Mike Crittenden", "Frank Anderson"]
+  s.email       = 'frank@kwallcompany.com
   s.homepage    = 'https://github.com/drupalstaffing/flatfish'
 
   s.add_dependency 'nokogiri'
